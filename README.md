@@ -1,99 +1,152 @@
-# final_year_project
+# Final Year Project — Setup Guide
 
-✅ OPTION 1 — Run Without Docker (Fastest for local testing)
+This guide explains how to run both the **backend (FastAPI)** and **frontend (React)** for your project. All commands and screenshots are included below.
 
-(Just backend + frontend manually)
+---
 
-🟦 Backend Setup (FastAPI)
-1. Unzip the project
+# 🟦 Backend Setup (FastAPI)
+
+### **1. Unzip the project**
+
+```bash
 unzip skin-web-app.zip
 cd final_year_project
+```
 
-2. Create virtual environment
+### **2. Create virtual environment**
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-3. Install dependencies
+### **3. Install dependencies**
+
+```bash
 pip install --upgrade pip
 pip install -r app/requirements.txt
+```
 
-4. Start MySQL locally (you can use Docker or XAMPP/MAMP/WAMP)
+### **4. Start MySQL locally**
 
-💡 DATABASE  — start MySQL with Docker:  
-install docker on your laptop
-windows: https://docs.docker.com/desktop/setup/install/windows-install/
-MAC: https://docs.docker.com/desktop/setup/install/mac-install/
+You can use Docker or XAMPP/MAMP/WAMP.
 
+#### **Start MySQL using Docker:**
+
+Install Docker:
+
+* Windows: docs.docker.com/desktop/setup/install/windows-install/
+* Mac: docs.docker.com/desktop/setup/install/mac-install/
+
+```bash
 docker run --name skindb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=skindb -p 3306:3306 -d mysql:8
+```
 
-5. Set environment variables:
+### **5. Set environment variables**
 
+```bash
 export DB_HOST=localhost
 export DB_USER=root
 export DB_PASS=password
 export DB_NAME=skindb
 export UPLOAD_DIR=uploads
+```
 
-6. Start backend server
+### **6. Start backend server**
+
+```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
 
+### 👉 **Backend running at:**
 
-👉 Backend running at:
-http://localhost:8000
+[http://localhost:8000](http://localhost:8000)
 
-🟩 Frontend Setup (React Web)
+---
 
-Open a new terminal:
+# 🟩 Frontend Setup (React)
 
-1. Go to frontend
+Open a new terminal.
+
+### **1. Go to frontend folder**
+
+```bash
 cd final_year_project
+```
 
-2. Install Node dependencies
+### **2. Install dependencies**
+
+```bash
 npm install
+```
 
-3. Run React app
+### **3. Run React app**
+
+```bash
 npm run dev
+```
 
+### 👉 **Frontend running at:**
 
-👉 Frontend runs at:
-http://localhost:5173
+[http://localhost:5173](http://localhost:5173)
 
-🎉 Prototype Working Flow
+---
 
-Open frontend
-👉 http://localhost:5173
+# 🎉 Prototype Working Flow
 
+### 1. Open frontend:
 
-Project usage steps 
-    Upload multiple face images
-    Click Analyze Skin
-    FastAPI will:
-    Save images to /backend/uploads/
-    Run dummy ML / model
-    Predict conditions
-    Suggest products
-    UI shows results + images
+👉 [http://localhost:5173](http://localhost:5173)
 
+### 2. Project usage steps:
 
+* Upload multiple face images
+* Click **Analyze Skin**
+* FastAPI will:
 
-## how to start frontend:
+  * Save images to `/backend/uploads/`
+  * Run dummy ML / model
+  * Predict conditions
+  * Suggest products
+* UI shows results and images
+
+---
+
+# 📌 How to Start Frontend Again
+
+```bash
 cd final_year_project
 npm run dev
+```
 
 Access frontend:
-http://localhost:5173
+[http://localhost:5173](http://localhost:5173)
 
-![alt text](<Screenshot 2025-11-19 at 11.44.17 PM.png>)
+### Screenshot:
 
+![alt text](Screenshot%202025-11-19%20at%2011.44.17%E2%80%AFPM.png)
 
-## how to start backend
+---
+
+# 📌 How to Start Backend Again
+
+```bash
 cd final_year_project/app
 source venv/bin/activate
 cd ..
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
 
-How access backend swagger doc:
-http://localhost:8000/docs
+### Access Swagger API Docs:
 
-![alt text](<Screenshot 2025-11-19 at 11.44.09 PM.png>)
-## project data
+[http://localhost:8000/docs](http://localhost:8000/docs)
+
+### Screenshot:
+
+![alt text](Screenshot%202025-11-19%20at%2011.44.09%E2%80%AFPM.png)
+
+---
+
+# 📁 Project Data
+
+(Add any dataset information here.)
